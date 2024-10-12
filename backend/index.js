@@ -2,7 +2,7 @@
  require('dotenv').config();
  const cookieParser = require('cookie-parser');
 const { connectDB } = require('./config/db');
-const routes = require('./routes/userRoutes')
+const {routes} = require('./routes/userRoutes')
 
  
  const app = express();
