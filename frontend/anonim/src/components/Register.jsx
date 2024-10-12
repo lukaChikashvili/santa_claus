@@ -27,8 +27,8 @@ const Register = () => {
           
            const res = await register({username, email, password}).unwrap();
            dispatch(setCredentials({...res}));
-           navigate('/');
-           
+           navigate('/login');
+
 
 
        } catch (error) {
