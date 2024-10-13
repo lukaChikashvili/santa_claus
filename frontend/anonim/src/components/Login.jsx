@@ -33,7 +33,7 @@ const Login = () => {
     <div className='w-full flex items-center justify-between px-36 mt-[5rem]'>
 
     <div>
-srtsrt
+
 
     </div>
 
