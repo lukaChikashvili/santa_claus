@@ -28,6 +28,8 @@ const NavBar = () => {
      }
   }
 
+
+
   return (
     <header className='w-full  flex items-center justify-between px-16 py-8'>
        <h1 className='text-white text-2xl font-bold hidden md:block' >მომიყევი+</h1>
@@ -36,7 +38,10 @@ const NavBar = () => {
 
         {
             userInfo ? (
+              <div className='flex items-center gap-8'>
+                 <p className='text-2xl text-[#BED754]'>{userInfo.username}</p>
                 <button onClick={logoutHandler} className='line'>გასვლა</button>
+                </div>
             ) : (
                 <>
                 <Link to = "/register" className='flex items-center gap-4'><UserPlus />რეგისტრაცია</Link>
