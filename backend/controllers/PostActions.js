@@ -78,6 +78,13 @@ if (post.user.toString() !== req.user._id.toString()) {
 
 res.status(200).json({ message: "Post deleted successfully" });
 
+});
+
+// get all posts
+const getAllPosts = asyncHandler(async(req, res) => {
+  const allPosts = await Post.find({});
+
+  res.status(200).json(allPosts);
 })
 
 
@@ -86,5 +93,6 @@ res.status(200).json({ message: "Post deleted successfully" });
 module.exports = {
     createPost,
     updatePost,
-    deletePost
+    deletePost,
+    getAllPosts
 }
