@@ -58,6 +58,26 @@ const updatePost = asyncHandler(async(req, res) => {
         }
     });
 
+});
+
+// delete post
+const deletePost = asyncHandler(async(req, res) => {
+  const { id } = req.params;
+
+  const post = await Post.findByIdAndDelete(id);
+
+  if (!post) {
+    return res.status(404).json({ message: "Post not found" });
+}
+
+if (post.user.toString() !== req.user._id.toString()) {
+    return res.status(403).json({ message: "You are not authorized to delete this post" });
+}
+
+ 
+
+res.status(200).json({ message: "Post deleted successfully" });
+
 })
 
 
@@ -65,5 +85,6 @@ const updatePost = asyncHandler(async(req, res) => {
 
 module.exports = {
     createPost,
-    updatePost
+    updatePost,
+    deletePost
 }
