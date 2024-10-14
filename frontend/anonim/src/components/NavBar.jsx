@@ -37,7 +37,7 @@ const NavBar = () => {
        <nav className='hidden md:flex items-center gap-8 text-white font-bold text-xl ' >
 
         {
-            userInfo ? (
+            userInfo ?  (
               <div className='flex items-center gap-8'>
                  <p className='text-2xl text-[#BED754]'>{userInfo.username}</p>
                 <button onClick={logoutHandler} className='line'>გასვლა</button>

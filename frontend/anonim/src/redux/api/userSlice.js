@@ -35,6 +35,13 @@ const userSlice = apiSlice.injectEndpoints({
             method: "POST",
             body: data
         })
+       }),
+
+       getAllPosts: builder.query({
+        query: () => ({
+          url: `${USERS_URL}/posts`,
+          method: "GET"
+        })
        })
 
 
@@ -43,6 +50,6 @@ const userSlice = apiSlice.injectEndpoints({
 
 
 
-export const { useRegisterMutation, useLoginMutation , useLogoutMutation, useCreatePostMutation} = userSlice;
+export const { useRegisterMutation, useLoginMutation , useLogoutMutation, useCreatePostMutation, useGetAllPostsQuery} = userSlice;
 
 

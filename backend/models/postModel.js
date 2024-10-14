@@ -8,11 +8,18 @@ const postSchema = new mongoose.Schema({
         maxLength: 500,
     },
 
+   
+
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: true
     },
+
+    username: {
+        type: String,
+        required: true
+    }
 
     
 }, {timestamps: true});

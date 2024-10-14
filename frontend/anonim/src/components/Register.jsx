@@ -12,7 +12,7 @@ const Register = () => {
     const [password, setPassword] = useState('');
 
     let navigate = useNavigate();
-    let dispatch = useDispatch();
+   
 
     const [register, {isLoading}] = useRegisterMutation();
 
@@ -26,7 +26,7 @@ const Register = () => {
        try {
           
            const res = await register({username, email, password}).unwrap();
-           dispatch(setCredentials({...res}));
+    
            navigate('/login');
 
 
