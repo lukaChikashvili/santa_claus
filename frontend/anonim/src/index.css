@@ -21,7 +21,11 @@
 
 body {
 
-  background: linear-gradient(112.1deg, rgb(32, 38, 57) 11.4%, rgb(63, 76, 119) 70.2%);
+  background: #360033;
+  background: linear-gradient(
+    to right,
+    #360033,#0b8793
+  );
   background-repeat: no-repeat;
 
   width: 100%;

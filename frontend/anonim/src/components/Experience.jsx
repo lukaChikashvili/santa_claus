@@ -1,4 +1,4 @@
-import { OrbitControls, useTexture } from '@react-three/drei'
+import { OrbitControls, Stars, useTexture } from '@react-three/drei'
 import React, { useRef } from 'react'
 import vertexShader from '../shaders/vertexShader.glsl';
 import fragmentShader from '../shaders/fragmentShader.glsl';
@@ -31,9 +31,9 @@ const Experience = () => {
 
 
 
-        
+    <Stars count={2000}/>
 
-<mesh position = {[1.5, -1, 0]} rotation={[0, 0.5, 0]} >
+<mesh position = {[1.5, -1, 0]} rotation={[0, 0.5, 0]}  >
   <planeGeometry args={[7, 6, 64, 64]} />
   <shaderMaterial 
   vertexShader={vertexShader}
