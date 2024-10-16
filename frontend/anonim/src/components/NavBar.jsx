@@ -32,7 +32,10 @@ const NavBar = () => {
 
   return (
     <header className='w-full  flex items-center justify-between px-16 py-8'>
-       <h1 className='text-white text-2xl font-bold cursor-pointer hidden md:block' onClick={() => navigate("/profile")}>კაჩოკები</h1>
+       <h1 className='text-white text-2xl font-bold cursor-pointer hidden md:block' onClick={() => navigate("/profile")}>
+          <img src = "./logo.png" className='w-20 absolute top-2' />
+         <span className='ml-20'>სიზმარა</span> 
+       </h1>
 
        <nav className='hidden md:flex items-center gap-8 text-white font-bold text-xl ' >
 

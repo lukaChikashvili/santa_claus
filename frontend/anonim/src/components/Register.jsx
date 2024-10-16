@@ -45,13 +45,13 @@ const Register = () => {
 
 <div className='w-[35%] flex flex-col gap-8 '>
       <h1 className='text-4xl text-white font-bold'>რეგისტრაცია</h1>
-      <span className='w-full h-[1.4px] bg-[#BED754]'></span>
+      <span className='w-full h-[1.4px] bg-yellow-500'></span>
         <form onSubmit={handleRegister} className='flex flex-col gap-8 '>
        <input type='text' value={username} placeholder='სახელი...' onChange={(e) => setUsername(e.target.value)} className='p-2 rounded outline-none shadow'/>
        <input type='email' value ={email} placeholder='ელ-ფოსტა..' onChange={(e) => setEmail(e.target.value)} className='p-2 rounded outline-none shadow' />
        <input type='password' value = {password} placeholder='პაროლი..' onChange={(e) => setPassword(e.target.value)} className='p-2 rounded outline-none shadow' />
 
-       <button type='submit' className='w-full bg-[#BED754] rounded shadow-lg text-white  shadow-gray-700 p-2 font-semibold duration-500 ease hover:bg-[#6b7a26]'>{isLoading ? "იტვირთება.." : "რეგისტრაცია"}</button>
+       <button type='submit' className='w-full bg-yellow-500 rounded shadow-lg text-white  shadow-gray-700 p-2 font-semibold duration-500 ease hover:bg-[#6b7a26]'>{isLoading ? "იტვირთება.." : "რეგისტრაცია"}</button>
        </form>
        </div>
     </div>
