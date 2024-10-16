@@ -42,7 +42,7 @@ const NavBar = () => {
         {
             userInfo ?  (
               <div className='flex items-center gap-8'>
-                 <p className='text-xl text-[#BED754] cursor-pointer line' onClick={() => navigate('/userProfile')}>{userInfo.username}</p>
+                 <p className='text-xl text-yellow-500 cursor-pointer line' onClick={() => navigate('/userProfile')}>{userInfo.username}</p>
                 <button onClick={logoutHandler} className='line'>გასვლა</button>
                 </div>
             ) : (

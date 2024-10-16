@@ -59,35 +59,38 @@ const Profile = () => {
   return (
     <div className='flex flex-col items-center justify-center min-h-screen  '>
       <form onSubmit={handlePost} action ="/upload" encType='multipart/form-data' className='flex flex-col gap-4 mt-12' >
-        <input type='text' onChange={(e) => setContent(e.target.value)} placeholder='მოგვიყევი შენი ისტორია...'
+        <input type='text' onChange={(e) => setContent(e.target.value)} placeholder='რა დაგესიზმრა დღეს?...'
         className='w-full outline-none rounded-md px-56 shadow-lg py-4' />
        
        <input type='file' accept='image/*'  onChange={handleImageChange}/>
 
-        <button type='submit' className='w-full bg-[#BED754] rounded shadow-lg text-white  shadow-gray-700 p-2 font-semibold duration-500 ease hover:bg-[#6b7a26]'
+        <button type='submit' className='w-full bg-yellow-500 rounded shadow-lg text-white  shadow-gray-700 p-2 font-semibold duration-500 ease hover:bg-[#6b7a26]'
         >{isLoading ? "ქვეყნდება..." : "გამოქვეყნება"}</button>
         </form>
 
 <div >
         {allPosts && allPosts.length > 0 ? (
             allPosts.map(post => (
-              <div key={post._id} className='w-[50rem] h-[15rem] bg-white mt-[3rem] rounded-md shadow-lg p-4 text-center' >
+              <div key={post._id} className='w-[40rem] flex flex-col  bg-white mt-[3rem] rounded-md shadow-lg p-4 text-center' >
              
-                <h4 className='text-xl mr-[38rem] font-semibold cursor-pointer hover:underline hover:underline-offset-8 ' >{post.username}</h4>
-                <p className='mr-[40.5rem] mt-2 font-bold text-[#BED754] '>50 გამომწერი</p>
-           
-                {post.image && (
-                <img
-                  src={`http://localhost:5000/uploads/${post.image}`} 
-                  alt="Post Image"
-                  className="mt-4 w-[10rem] h-[10rem] object-cover rounded-lg mx-auto"
-                />
-              )}
+             <div className='w-full flex items-center'>
+                <h4 className='text-yellow-500 font-bold text-xl underline-offset-8  cursor-pointer duration-500 ease hover:underline  ' >{post.username}</h4>
+               
+           </div>
+            
 
-                <p className='mt-4'>
+                <p className='mt-8'>
                {post.content.length > 100
                 ? `${post.content.substring(0, 100)}...`
                 : post.content}
+
+              {post.image && (
+                <img
+                  src={`http://localhost:5000/uploads/${post.image}`} 
+                  alt="Post Image"
+                  className="mt-4 w-full h-screen object-cover rounded-lg mx-auto"
+                />
+              )}
 </p>
 
 <hr className='mt-4' />
@@ -101,7 +104,7 @@ const Profile = () => {
               </div>
             ))
           ) : (
-            <p className='mt-12 text-white'>პოსტები არ არის</p>
+            <p className='mt-12 text-white'>სიზმრები არ არის</p>
           )}
 </div>
     </div>
