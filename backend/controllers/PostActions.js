@@ -7,17 +7,21 @@ const { Post } = require('../models/postModel');
 const createPost = asyncHandler(async(req, res) => {
    const { content } = req.body;
 
+   const image = req.file ? req.file.filename : null;
+
    if(!content) {
     res.status(500).json({message: "no content is written"});
    }
 
+   
    
 
    try {
       const post = await Post.create({
         content,
         user: req.user._id,
-        username: req.user.username
+        username: req.user.username,
+        image
         
       });
 
@@ -25,7 +29,8 @@ const createPost = asyncHandler(async(req, res) => {
         _id: post._id,
         content: post.content,
         user: post.user,
-        username: post.username
+        username: post.username,
+        image: post.image
         
     });
    } catch (error) {

@@ -14,6 +14,8 @@ const Profile = () => {
 
   const { userInfo } = useSelector(state => state.auth);
 
+  const [image, setImage] = useState(null);
+
   useEffect(() => {
     if(postSuccess) {
       refetch();
@@ -29,8 +31,15 @@ const Profile = () => {
     if(userInfo) {
       try {
       
-       const post = await userPost({content}).unwrap();
-       console.log(post)
+        const formData = new FormData();
+        formData.append('content', content);
+
+        if(image) {
+          formData.append('image', image);
+        }
+
+        const post = await userPost(formData).unwrap();
+        console.log(post);
       
 
     } catch (error) {
@@ -41,12 +50,20 @@ const Profile = () => {
         }
    
   }
+
+  // upload image function
+  const handleImageChange = (e) => {
+    setImage(e.target.files[0]);
+  }
    
   return (
     <div className='flex flex-col items-center justify-center min-h-screen  '>
-      <form onSubmit={handlePost} className='flex flex-col gap-4 mt-12' >
+      <form onSubmit={handlePost} action ="/upload" encType='multipart/form-data' className='flex flex-col gap-4 mt-12' >
         <input type='text' onChange={(e) => setContent(e.target.value)} placeholder='მოგვიყევი შენი ისტორია...'
         className='w-full outline-none rounded-md px-56 shadow-lg py-4' />
+       
+       <input type='file' accept='image/*'  onChange={handleImageChange}/>
+
         <button type='submit' className='w-full bg-[#BED754] rounded shadow-lg text-white  shadow-gray-700 p-2 font-semibold duration-500 ease hover:bg-[#6b7a26]'
         >{isLoading ? "ქვეყნდება..." : "გამოქვეყნება"}</button>
         </form>
@@ -59,7 +76,14 @@ const Profile = () => {
                 <h4 className='text-xl mr-[38rem] font-semibold cursor-pointer hover:underline hover:underline-offset-8 ' >{post.username}</h4>
                 <p className='mr-[40.5rem] mt-2 font-bold text-[#BED754] '>50 გამომწერი</p>
            
-              
+                {post.image && (
+                <img
+                  src={`http://localhost:5000/uploads/${post.image}`} 
+                  alt="Post Image"
+                  className="mt-4 w-[10rem] h-[10rem] object-cover rounded-lg mx-auto"
+                />
+              )}
+
                 <p className='mt-4'>
                {post.content.length > 100
                 ? `${post.content.substring(0, 100)}...`

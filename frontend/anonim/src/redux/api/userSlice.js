@@ -33,7 +33,10 @@ const userSlice = apiSlice.injectEndpoints({
         query: (data) => ({
             url: `${USERS_URL}/post`,
             method: "POST",
-            body: data
+            body: data,
+            headers: {
+                
+            }
         })
        }),
 
