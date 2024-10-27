@@ -1,7 +1,14 @@
-import { OrbitControls, Reflector } from '@react-three/drei'
+import { OrbitControls, Reflector, useTexture } from '@react-three/drei'
+import texture from '../assets/christmas.jpg'
+import blue from '../assets/blue.jpg'
+
 const Experience = () => {
 
+     // add texture
+     const chris = useTexture(texture);
+     const blueImg = useTexture(blue);
 
+   
   return (
   <>
      <OrbitControls />
@@ -14,14 +21,32 @@ const Experience = () => {
        minDepthThreshold={0.8}
        maxDepthThreshold={1}
        rotation = {[-Math.PI / 2, 0, 0]}
-       args={[40, 30]}
-       position={[0, -2, 4]}
+       args={[60, 60]}
+       position={[0, -2, 0]}
        
        
        >
-       {(Material, props) => <meshStandardMaterial {...props} color="#F5F5F5" roughness={0.3} metalness={0.6} />}
+       {(Material, props) => <meshStandardMaterial {...props} map={chris} roughness={0.3} metalness={0.6} />}
       </Reflector>
+
+      <mesh position={[0, 10, -15]} rotation={[0, 0, 0]}>
+        <planeGeometry args={[40, 20]} />
+        <meshStandardMaterial map={chris} roughness={0.8} metalness={0.5} />
+      </mesh>
+
+
+      <mesh position={[-20, 10, 0]} rotation={[0, Math.PI / 2, 0]}>
+        <planeGeometry args={[30, 20]} />
+        <meshStandardMaterial map={chris} roughness={0.8} metalness={0.5} />
+      </mesh>
+
+
+      <mesh position={[20, 10, 0]} rotation={[0, -Math.PI / 2, 0]}>
+        <planeGeometry args={[30, 20]} />
+        <meshStandardMaterial map={chris} roughness={0.8} metalness={0.5} />
+      </mesh>
   </>
+
   )
 }
 
