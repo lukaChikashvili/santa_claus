@@ -4,6 +4,9 @@ import { KeyRound, UserPlus } from 'lucide-react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useLogoutMutation } from '../redux/api/userSlice'
 import { logout } from '../redux/features/authSlice'
+import stick from '../assets/stick.png'
+import gift from '../assets/gift.png'
+
 
 const NavBar = () => {
 
@@ -31,13 +34,13 @@ const NavBar = () => {
 
 
   return (
-    <header className='w-full  flex items-center justify-between px-16 py-8'>
+    <header className='w-full  flex items-center justify-between px-12 py-8'>
        <h1 className='text-white text-2xl font-bold cursor-pointer hidden md:block' onClick={() => navigate("/profile")}>
-          <img src = "./logo.png" className='w-20 absolute top-2' />
-         <span className='ml-20'>სიზმარა</span> 
+          <img src = {gift} className='w-16 absolute top-2' />
+         <span className='ml-20'>მაჩუქე.ge</span> 
        </h1>
 
-       <nav className='hidden md:flex items-center gap-8 text-white font-bold text-xl ' >
+       <nav className='hidden md:flex items-center gap-4 text-white font-bold text-xl ' >
 
         {
             userInfo ?  (
@@ -47,8 +50,8 @@ const NavBar = () => {
                 </div>
             ) : (
                 <>
-                <Link to = "/register" className='flex items-center gap-4'><UserPlus />რეგისტრაცია</Link>
-                <Link to = "/login" className='flex items-center gap-4'><KeyRound />შესვლა</Link>
+                <Link to = "/register" className='flex items-center gap-4'><img src={stick} className='w-12'/>რეგისტრაცია</Link>
+                <Link to = "/login" className='flex items-center gap-4'><img src={stick} className='w-12'/>შესვლა</Link>
                 </>
             )
         }

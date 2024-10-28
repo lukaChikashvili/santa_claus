@@ -24,7 +24,7 @@ function App() {
   return (
     <>
     <NavBar />
-    <div className='absolute bottom-12 left-8 text-white'>
+    <div className='absolute bottom-6 left-8 text-white'>
      <button onClick={handleLight}>
         {isLightOn ? <LightbulbOff /> : <Lightbulb />}
       </button>

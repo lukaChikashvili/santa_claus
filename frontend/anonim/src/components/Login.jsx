@@ -3,8 +3,6 @@ import { useLoginMutation } from '../redux/api/userSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCredentials } from '../redux/features/authSlice';
 import { useNavigate } from 'react-router';
-import { turnLight } from '../redux/features/lightSlice';
-import { Lightbulb } from 'lucide-react';
 
 
 
@@ -39,15 +37,17 @@ const Login = () => {
     }
 
   return (
-    <div className='w-full flex items-center justify-between px-36 mt-[5rem]'>
+    <div className='w-full flex items-center justify-between px-36 mt-[5rem] '>
 
     <div>
 
 
     </div>
 
-<div className='w-[35%] flex flex-col gap-8 '>
+<div className='w-[35%] flex flex-col gap-8  '>
     <h1 className='text-4xl text-white font-bold'>სისტემაში შესვლა</h1>
+     
+     
     <span className='w-full h-[1.4px] bg-yellow-500'></span>
       <form onSubmit={handleLogin} className='flex flex-col gap-8 '>
    
