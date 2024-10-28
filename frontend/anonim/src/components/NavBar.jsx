@@ -6,7 +6,7 @@ import { useLogoutMutation } from '../redux/api/userSlice'
 import { logout } from '../redux/features/authSlice'
 import stick from '../assets/stick.png'
 import gift from '../assets/gift.png'
-
+import bell from '../assets/bell.png'
 
 const NavBar = () => {
 
@@ -45,7 +45,7 @@ const NavBar = () => {
         {
             userInfo ?  (
               <div className='flex items-center gap-8'>
-                 <p className='text-xl text-yellow-500 cursor-pointer line' onClick={() => navigate('/userProfile')}>{userInfo.username}</p>
+                 <p className='text-xl text-white cursor-pointer line flex items-center gap-4' onClick={() => navigate('/userProfile')}><img className='w-8' src={bell} />{userInfo.username}</p>
                 <button onClick={logoutHandler} className='line'>გასვლა</button>
                 </div>
             ) : (

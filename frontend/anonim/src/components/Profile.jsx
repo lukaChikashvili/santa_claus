@@ -59,12 +59,13 @@ const Profile = () => {
   return (
     <div className='flex flex-col items-center justify-center min-h-screen  '>
       <form onSubmit={handlePost} action ="/upload" encType='multipart/form-data' className='flex flex-col gap-4 mt-12' >
-        <input type='text' onChange={(e) => setContent(e.target.value)} placeholder='რა დაგესიზმრა დღეს?...'
+        <input type='text' onChange={(e) => setContent(e.target.value)} placeholder='რა გაჩუქოს სანტამ?...'
         className='w-full outline-none rounded-md px-56 shadow-lg py-4' />
        
        <input type='file' accept='image/*'  onChange={handleImageChange}/>
 
-        <button type='submit' className='w-full bg-yellow-500 rounded shadow-lg text-white  shadow-gray-700 p-2 font-semibold duration-500 ease hover:bg-[#6b7a26]'
+        <button type='submit' className='w-full bg-[#e04141] rounded shadow-lg text-white  
+      p-2 font-semibold  duration-500 ease   hover:bg-[#ca5454] '
         >{isLoading ? "ქვეყნდება..." : "გამოქვეყნება"}</button>
         </form>
 

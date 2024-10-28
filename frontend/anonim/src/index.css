@@ -15,14 +15,15 @@
  overflow: auto;
  user-select: none;
 
- 
+ background-color: #6e0400;
+ background-image: url("https://www.transparenttextures.com/patterns/my-little-plaid.png");
+
 }
 
 
 
 body {
 
-background-color: #191919;
   background-repeat: no-repeat;
 
   width: 100%;

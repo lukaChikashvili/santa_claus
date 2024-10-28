@@ -5,7 +5,6 @@ import { Physics, RigidBody } from '@react-three/rapier';
 import gift from '../assets/gift.jpg';
 import giftblue from '../assets/giftblue.jpg'
 import santa from '../assets/santa.jpg'
-import switchImg from '../assets/switch.webp'
 import { useSelector } from 'react-redux';
 import snow from '../assets/snow.jpg'
 
