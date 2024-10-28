@@ -3,10 +3,7 @@ import { useLoginMutation } from '../redux/api/userSlice';
 import { useDispatch } from 'react-redux';
 import { setCredentials } from '../redux/features/authSlice';
 import { useNavigate } from 'react-router';
-import texture from '../assets/christmas.jpg'
-import blue from '../assets/blue.jpg'
-import snow from '../assets/snow.jpg'
-import Modal from './Modal';
+
 
 
 const Login = () => {
@@ -55,12 +52,6 @@ const Login = () => {
      </form>
      </div>
 
-     <div className='absolute bottom-4 left-12'>
-       <img className='w-12 h-12 rounded-full shadow-gray-600 shadow-lg cursor-pointer border-2
-       duration-500 ease hover:border-red-300' onClick={() => setShowModal(!showModal)} src={snow} />
-
-   
-        </div>
   </div>
   )
 }

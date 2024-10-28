@@ -16,7 +16,7 @@ function App() {
    
 
      <div className="fixed top-0 left-0 w-full h-screen -z-10 ">
-      {userInfo ? "" :  <Canvas camera={{position: [0, 5, 10],   fov: 75, near: 0.1, far: 1000 }}>
+      {userInfo ? "" :  <Canvas camera={{position: [3, 7, 20],   fov: 75, near: 0.1, far: 1000 }}>
       <Lights />
         <Experience />
       </Canvas> }
