@@ -60,7 +60,8 @@ const Login = () => {
      <input type='email' value ={email} placeholder='ელ-ფოსტა..' onChange={(e) => setEmail(e.target.value)} className='p-2 rounded outline-none shadow' />
      <input type='password' value = {password} placeholder='პაროლი..' onChange={(e) => setPassword(e.target.value)} className='p-2 rounded outline-none shadow' />
 
-     <button type='submit' className='w-full bg-[#e04141] rounded shadow-lg text-white   p-2 font-semibold  duration-500 ease   hover:bg-[#ca5454] '>{isLoading ? "იტვირთება.." : "შესვლა"}</button>
+     <button type='submit' className='w-full bg-[#e04141] rounded shadow-lg text-white  
+      p-2 font-semibold  duration-500 ease   hover:bg-[#ca5454] '>{isLoading ? "იტვირთება.." : "შესვლა"}</button>
      </form>
      </div>
 

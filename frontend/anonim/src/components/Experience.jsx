@@ -23,6 +23,7 @@ const Experience = () => {
   // Load tree 3D model
   const treeModel = useGLTF('./tree.glb');
   const sofaModel = useGLTF('./sofa.glb');
+  const radio = useGLTF('./radio.glb');
 
   // light from redux
   const isLightOn = useSelector((state) => state.light.light);
@@ -95,6 +96,7 @@ const Experience = () => {
 
         <primitive object={treeModel.scene} scale={0.3} position={[-9, 0, 10]} />
         <primitive object={sofaModel.scene} scale={7} position={[-9, 0, -8]} />
+        <primitive object={radio.scene} scale={0.015} position={[6, 3, -8]} />
         </Physics>
 
 {isLightOn &&  <EffectComposer multisampling={0}>
