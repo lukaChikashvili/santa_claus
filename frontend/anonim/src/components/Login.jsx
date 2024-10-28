@@ -14,8 +14,6 @@ const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    // modal
-    const [showModal, setShowModal] = useState(false);
 
     const [login, {isLoading}] = useLoginMutation();
   
@@ -61,9 +59,7 @@ const Login = () => {
        <img className='w-12 h-12 rounded-full shadow-gray-600 shadow-lg cursor-pointer border-2
        duration-500 ease hover:border-red-300' onClick={() => setShowModal(!showModal)} src={snow} />
 
-       {showModal && <div className='absolute bottom-4 left-20 w-full bg-white '>
-          <Modal />
-        </div>}
+   
         </div>
   </div>
   )

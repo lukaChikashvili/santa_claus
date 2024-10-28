@@ -1,52 +1,37 @@
 import { OrbitControls, Reflector, useTexture } from '@react-three/drei'
-import texture from '../assets/christmas.jpg'
-import blue from '../assets/blue.jpg'
-import snow from '../assets/snow.jpg'
+import wood from '../assets/wood.jpg'
 
 const Experience = () => {
 
      // add texture
-     const chris = useTexture(texture);
-     const blueImg = useTexture(blue);
-     const snowImg = useTexture(snow);
+    const woodTexture = useTexture(wood);
 
 
    
   return (
   <>
-     
-      <Reflector 
-       blur={[400, 100]}
-       resolution={1024}
-       mixBlur={1}
-       mixStrength={1}
-       depthScale={1}
-       minDepthThreshold={0.8}
-       maxDepthThreshold={1}
-       rotation = {[-Math.PI / 2, 0, 0]}
-       args={[60, 60]}
-       position={[0, -2, 0]}
-       
-       
-       >
-       {(Material, props) => <meshStandardMaterial {...props} map={snowImg} roughness={0.3} metalness={0.6} />}
-      </Reflector>
+     <OrbitControls makeDefault minAzimuthAngle={-Math.PI / 4} maxAzimuthAngle={Math.PI / 4} />
+
+       <mesh rotation={[-Math.PI / 2, 0, 0]} >
+         <planeGeometry args={[40, 40]}/>
+         <meshStandardMaterial map={woodTexture} />
+       </mesh>
 
       <mesh position={[0, 10, -15]} rotation={[0, 0, 0]}>
         <planeGeometry args={[40, 20]} />
-        <meshStandardMaterial map={snowImg} roughness={0.8} metalness={0.5} />
+        <meshStandardMaterial map={woodTexture} roughness={0.8} metalness={0.5} />
       </mesh>
 
 
       <mesh position={[-20, 10, 0]} rotation={[0, Math.PI / 2, 0]}>
         <planeGeometry args={[30, 20]} />
-        <meshStandardMaterial map={snowImg} roughness={0.8} metalness={0.5} />
+        <meshStandardMaterial map={woodTexture} roughness={0.8} metalness={0.5} />
       </mesh>
 
 
       <mesh position={[20, 10, 0]} rotation={[0, -Math.PI / 2, 0]}>
         <planeGeometry args={[30, 20]} />
-        <meshStandardMaterial map={snowImg} roughness={0.8} metalness={0.5} />
+        <meshStandardMaterial map={woodTexture} roughness={0.8} metalness={0.5} />
       </mesh>
   </>
 
