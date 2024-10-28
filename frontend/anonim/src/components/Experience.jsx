@@ -1,10 +1,12 @@
-import { OrbitControls, Text3D, useGLTF, useTexture } from '@react-three/drei';
+import { Html, OrbitControls, Text3D, useGLTF, useTexture } from '@react-three/drei';
 import wood from '../assets/wood.jpg';
 import { Bloom, EffectComposer } from '@react-three/postprocessing';
 import { Physics, RigidBody } from '@react-three/rapier';
 import gift from '../assets/gift.jpg';
 import giftblue from '../assets/giftblue.jpg'
 import santa from '../assets/santa.jpg'
+import switchImg from '../assets/switch.webp'
+import { useState } from 'react';
 
 
 const Experience = () => {
@@ -13,10 +15,12 @@ const Experience = () => {
   const giftTexture = useTexture(gift);
   const giftblueTexture = useTexture(giftblue);
   const santaTexture = useTexture(santa);
+  const switchTexture = useTexture(switchImg)
   
   // Load tree 3D model
   const treeModel = useGLTF('./tree.glb');
   const sofaModel = useGLTF('./sofa.glb');
+
 
   return (
     <>
@@ -81,12 +85,13 @@ const Experience = () => {
           <planeGeometry args={[3, 4]} />
           <meshStandardMaterial map={santaTexture} />
         </mesh>
-        
 
-     
+
         <primitive object={treeModel.scene} scale={0.3} position={[-9, 0, 10]} />
         <primitive object={sofaModel.scene} scale={7} position={[-9, 0, -8]} />
         </Physics>
+
+
  
     </>
   );
