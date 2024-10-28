@@ -7,6 +7,7 @@ import giftblue from '../assets/giftblue.jpg'
 import santa from '../assets/santa.jpg'
 import switchImg from '../assets/switch.webp'
 import { useSelector } from 'react-redux';
+import snow from '../assets/snow.jpg'
 
 
 
@@ -16,7 +17,8 @@ const Experience = () => {
   const giftTexture = useTexture(gift);
   const giftblueTexture = useTexture(giftblue);
   const santaTexture = useTexture(santa);
-  const switchTexture = useTexture(switchImg)
+  const redTexture = useTexture(snow);
+ 
   
   // Load tree 3D model
   const treeModel = useGLTF('./tree.glb');
@@ -24,7 +26,7 @@ const Experience = () => {
 
   // light from redux
   const isLightOn = useSelector((state) => state.light.light);
-
+  const isTheme = useSelector((state) => state.light.theme);
 
   return (
     <>
@@ -35,7 +37,7 @@ const Experience = () => {
         <RigidBody type='fixed'>
           <mesh receiveShadow rotation={[-Math.PI / 2, 0, 0]}>
             <planeGeometry args={[40, 40]} />
-            <meshStandardMaterial map={woodTexture} />
+            <meshStandardMaterial map={isTheme ? redTexture : woodTexture} />
           </mesh>
         </RigidBody>
 
@@ -67,21 +69,21 @@ const Experience = () => {
 <RigidBody type='fixed'>
         <mesh position={[0, 10, -15]} rotation={[0, 0, 0]}>
           <planeGeometry args={[40, 20]} />
-          <meshStandardMaterial map={woodTexture} roughness={0.8} metalness={0.5} />
+          <meshStandardMaterial map={isTheme ? redTexture : woodTexture} roughness={0.8} metalness={0.5} />
         </mesh>
         </RigidBody>
 
         <RigidBody type='fixed'>
         <mesh position={[-20, 10, 0]} rotation={[0, Math.PI / 2, 0]}>
           <planeGeometry args={[30, 20]} />
-          <meshStandardMaterial map={woodTexture} roughness={0.8} metalness={0.5} />
+          <meshStandardMaterial map={isTheme ? redTexture : woodTexture} roughness={0.8} metalness={0.5} />
         </mesh>
         </RigidBody>
 
         <RigidBody type='fixed'>
         <mesh position={[20, 10, 0]} rotation={[0, -Math.PI / 2, 0]}>
           <planeGeometry args={[30, 20]} />
-          <meshStandardMaterial map={woodTexture} roughness={0.8} metalness={0.5} />
+          <meshStandardMaterial map={isTheme ? redTexture : woodTexture} roughness={0.8} metalness={0.5} />
         </mesh>
         </RigidBody>
 

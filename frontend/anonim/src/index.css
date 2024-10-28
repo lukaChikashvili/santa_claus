@@ -76,3 +76,9 @@ nav a:hover::after {
 .line:hover::after {
   width: 100%;
 }
+
+
+.stripe {
+  
+  background-image: linear-gradient(45deg, #e04141 25%, #F6F0CF 25%, #F6F0CF 50%, #e04141 50%, #e04141 75%, #F6F0CF 75%, #F6F0CF 100%);
+}

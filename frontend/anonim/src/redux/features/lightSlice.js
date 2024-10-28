@@ -2,7 +2,8 @@ import { createSlice } from "@reduxjs/toolkit"
 
 
 const initialState = {
-    light: false
+    light: false,
+    theme: false,
 }
 
 const lightSlice = createSlice({
@@ -11,11 +12,17 @@ const lightSlice = createSlice({
     reducers: {
         turnLight: (state) => {
             state.light = !state.light;
+        },
+
+        changeTheme: (state) => {
+         state.theme = !state.theme
         }
+
+
     }
 })
 
 
-export const { turnLight } = lightSlice.actions;
+export const { turnLight, changeTheme } = lightSlice.actions;
 export default lightSlice.reducer;
 
