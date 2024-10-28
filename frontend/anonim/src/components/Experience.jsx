@@ -6,7 +6,8 @@ import gift from '../assets/gift.jpg';
 import giftblue from '../assets/giftblue.jpg'
 import santa from '../assets/santa.jpg'
 import switchImg from '../assets/switch.webp'
-import { useState } from 'react';
+import { useSelector } from 'react-redux';
+
 
 
 const Experience = () => {
@@ -20,6 +21,9 @@ const Experience = () => {
   // Load tree 3D model
   const treeModel = useGLTF('./tree.glb');
   const sofaModel = useGLTF('./sofa.glb');
+
+  // light from redux
+  const isLightOn = useSelector((state) => state.light.light);
 
 
   return (
@@ -91,6 +95,9 @@ const Experience = () => {
         <primitive object={sofaModel.scene} scale={7} position={[-9, 0, -8]} />
         </Physics>
 
+{isLightOn &&  <EffectComposer multisampling={0}>
+        <Bloom width={256} height={256} mipmapBlur />
+      </EffectComposer> }
 
  
     </>
