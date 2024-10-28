@@ -1,4 +1,4 @@
-import { OrbitControls,  useTexture } from '@react-three/drei'
+import { OrbitControls,  useGLTF,  useTexture } from '@react-three/drei'
 import wood from '../assets/wood.jpg'
 import { Bloom, EffectComposer, Vignette } from '@react-three/postprocessing'
 
@@ -8,25 +8,49 @@ const Experience = () => {
     const woodTexture = useTexture(wood);
 
 
+    // tree 3d model
+    const treeModel = useGLTF('./tree.glb');
+
+// add bloom effect
+
    
   return (
   <>
      <OrbitControls makeDefault minAzimuthAngle={-Math.PI / 4} maxAzimuthAngle={Math.PI / 4} />
 
 
-     <EffectComposer multisampling={0}>
-        <Bloom width={256}  height={256} mipmapBlur />
-     </EffectComposer>
+
 
        <mesh receiveShadow rotation={[-Math.PI / 2, 0, 0]} >
          <planeGeometry args={[40, 40]}/>
          <meshStandardMaterial map={woodTexture} />
        </mesh>
 
-       <mesh castShadow position={[0, 6, 0]}>
-        <boxGeometry args={[10, 3, 10, 10]} />
+       <mesh rotation={[-Math.PI / 2, 0, 0]} castShadow position={[0, 15, 0]}>
+        <boxGeometry args={[5, 40]} />
         <meshStandardMaterial color={[5, 2, 1]} />
        </mesh>
+
+       <mesh rotation={[-Math.PI / 2, 0, 0]} castShadow position={[10, 15, 0]}>
+        <boxGeometry args={[5, 40]} />
+        <meshStandardMaterial color={[5, 2, 1]} />
+       </mesh>
+
+       <mesh rotation={[-Math.PI / 2, 0, 0]} castShadow position={[-10, 15, 0]}>
+        <boxGeometry args={[5, 40]} />
+        <meshStandardMaterial color={[5, 2, 1]} />
+       </mesh>
+
+       <mesh rotation={[-Math.PI / 2, 0, 0]} castShadow position={[-20, 15, 0]}>
+        <boxGeometry args={[5, 40]} />
+        <meshStandardMaterial color={[5, 2, 1]} />
+       </mesh>
+
+       <mesh rotation={[-Math.PI / 2, 0, 0]} castShadow position={[20, 15, 0]}>
+        <boxGeometry args={[5, 40]} />
+        <meshStandardMaterial color={[5, 2, 1]} />
+       </mesh>
+
 
 
 
@@ -46,6 +70,8 @@ const Experience = () => {
         <planeGeometry args={[30, 20]} />
         <meshStandardMaterial map={woodTexture} roughness={0.8} metalness={0.5} />
       </mesh>
+
+      <primitive object={treeModel.scene} scale = {0.30} position = {[-9, 0, 10]} />
   </>
 
   )
